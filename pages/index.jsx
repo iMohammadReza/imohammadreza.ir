@@ -56,7 +56,7 @@ function Home({ posts }) {
       <main className="bg-white dark:bg-black">
         <div className="lg:max-w-6xl lg:mx-auto py-16 px-8 lg:flex lg:flex-row-reverse">
           <aside className="lg:max-w-xs">
-            <h3 className="section-title">Now playing</h3>
+            {/* <h3 className="section-title">Now playing</h3> */}
             {/* <SpotifyNowPlaying/> */}
             <h3 className="section-title">Contact me</h3>
             <Contact />
