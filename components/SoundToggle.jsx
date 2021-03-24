@@ -2,6 +2,7 @@ import { useRef, useCallback } from 'react';
 import { useSpring, useChain, animated } from 'react-spring';
 
 import { useSoundSetting, useSound } from '../context/sound';
+import analytics from '../services/analytics';
 import { isClientSide } from '../utils';
 
 export const properties = {
@@ -55,6 +56,10 @@ function SoundToggle() {
   const handleClick = useCallback(() => {
     playClick();
     toggleSound();
+    analytics.sendEvent({
+      category: 'setting-interaction',
+      action: 'sound toggle',
+    });
   }, [playClick, toggleSound]);
 
   if (!isClientSide()) {

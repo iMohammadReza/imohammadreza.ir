@@ -3,6 +3,7 @@ import { useSpring, animated } from 'react-spring';
 
 import { useThemeSetting } from '../context/theme';
 import { useSound } from '../context/sound';
+import analytics from '../services/analytics';
 import { isClientSide } from '../utils';
 
 export const properties = {
@@ -70,6 +71,10 @@ function ThemeToggle() {
   const handleClick = useCallback(() => {
     playClick();
     toggleTheme();
+    analytics.sendEvent({
+      category: 'setting-interaction',
+      action: 'theme toggle',
+    });
   }, [playClick, toggleTheme]);
 
   if (!isClientSide()) {

@@ -1,6 +1,8 @@
+import { useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import { useSound } from '../context/sound';
+import analytics from '../services/analytics';
 
 function PostItem({
   title,
@@ -12,11 +14,19 @@ function PostItem({
     { volume: 0.5 },
   );
 
+  const handleClick = useCallback(() => {
+    playOpen();
+    analytics.sendEvent({
+      category: 'post-view',
+      action: link,
+    });
+  }, [playOpen, link]);
+
   return (
     <article dir="auto" className="group mt-12 dark:text-gray-200">
       <a
         href={link}
-        onClick={playOpen}
+        onClick={handleClick}
         target="_blank"
         rel="noreferrer"
       >

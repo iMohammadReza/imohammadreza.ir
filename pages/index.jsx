@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import absoluteUrl from 'next-absolute-url';
@@ -9,6 +10,7 @@ import ThemeToggle from '../components/ThemeToggle';
 import SoundToggle from '../components/SoundToggle';
 import { useSound } from '../context/sound';
 import request from '../services/request';
+import analytics from '../services/analytics';
 import { header } from '../config';
 
 function Home({ posts }) {
@@ -20,6 +22,13 @@ function Home({ posts }) {
     '/sounds/pop-down.mp3',
     { volume: 0.3 },
   );
+  const handleMouseEnter = useCallback(() => {
+    playPop();
+    analytics.sendEvent({
+      category: 'header-easter-egg',
+      action: 'hover',
+    });
+  }, [playPop]);
 
   return (
     <div>
@@ -27,14 +36,14 @@ function Home({ posts }) {
         <title>MohammadReza Iranmanesh</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="absolute top-2 right-2">
+      <div className="fixed top-2 right-2">
         <ThemeToggle />
         <SoundToggle />
       </div>
       <header className="py-48 text-center">
         <h1
           className="group relative inline-block font-extralight text-4xl sm:text-6xl md:text-7xl lg:text-8xl dark:text-white select-none"
-          onMouseEnter={playPop}
+          onMouseEnter={handleMouseEnter}
           onMouseLeave={playPopDown}
         >
           <b className="font-extrabold inline-block transform duration-300 group-hover:rotate-45 group-hover:translate-x-10 md:group-hover:translate-x-40 group-hover:-translate-y-20 group-hover:scale-50 md:group-hover:scale-25 transition-transform">

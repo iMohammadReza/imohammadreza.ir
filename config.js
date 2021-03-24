@@ -3,6 +3,8 @@ export const virgoolRSSSourse = 'https://virgool.io/feed/@imohammadreza';
 
 export const cacheTime = 1000 * 60 * 60 * 24; // 1d in ms.
 
+export const gaKey = 'UA-149357234-1';
+
 export const header = {
   firstName: 'MohammadReza',
   lastName: 'Iranmanesh',
