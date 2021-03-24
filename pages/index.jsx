@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
-import Head from 'next/head';
 import PropTypes from 'prop-types';
 import absoluteUrl from 'next-absolute-url';
 
+import MetaTags from '../components/MetaTags';
 import WaveDivider from '../components/WaveDivider';
 import Posts from '../components/Posts';
 import Contact from '../components/Contact';
@@ -32,10 +32,7 @@ function Home({ posts }) {
 
   return (
     <div>
-      <Head>
-        <title>MohammadReza Iranmanesh</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <MetaTags />
       <div className="fixed top-2 right-2">
         <ThemeToggle />
         <SoundToggle />
