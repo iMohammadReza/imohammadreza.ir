@@ -6,4 +6,5 @@
 @tailwind colors;
 
 @import './base.css';
+@import './scrollbar.css';
 @import './section-title.css';
