@@ -1,36 +1,47 @@
 import {
-  createContext, useState, useContext, useCallback,
+  createContext, useState, useContext, useCallback, useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
 
 import booleanStorage from '../services/booleanStorage';
-import { isClientSide } from '../utils';
+import { isClientSide, isDarkModeEnabled } from '../utils';
 
 export const ThemeContext = createContext();
 const localStorageKey = 'THEME_SETTING_IS_DARK';
 
-const initialValue = booleanStorage.getItem(localStorageKey);
+const initialValue = booleanStorage.getItem(
+  localStorageKey,
+  { defaultValue: isDarkModeEnabled() },
+);
 
 export const useThemeSetting = () => useContext(ThemeContext);
 
 export function ThemeSettingProvider({ children }) {
-  const [value, setTheme] = useState(initialValue);
+  const [isDarkMode, setTheme] = useState(initialValue);
 
   if (isClientSide()) {
-    if (value) {
+    if (isDarkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
   }
 
+  useEffect(() => {
+    if (isClientSide() && window.matchMedia) {
+      const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      colorSchemeQuery.addEventListener('change', () => setTheme(isDarkModeEnabled()));
+    }
+  }, []);
+
   const toggleTheme = useCallback(() => {
-    const newValue = !value;
+    const newValue = !isDarkMode;
     setTheme(newValue);
     booleanStorage.setItem(localStorageKey, newValue);
-  }, [value]);
+  }, [isDarkMode]);
+
   const contextValue = {
-    value,
+    isDarkMode,
     toggleTheme,
   };
 

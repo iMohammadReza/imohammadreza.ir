@@ -6,8 +6,7 @@ function getItem(key, { defaultValue = false } = {}) {
   }
 
   const value = localStorage.getItem(key);
-
-  if (value === undefined) {
+  if (value === null) {
     return defaultValue;
   }
 

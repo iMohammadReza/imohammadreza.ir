@@ -41,10 +41,10 @@ export const properties = {
 };
 
 function ThemeToggle() {
-  const { value, toggleTheme } = useThemeSetting();
+  const { isDarkMode, toggleTheme } = useThemeSetting();
   const {
     circle, svg, lines, mask,
-  } = properties[value ? 'dark' : 'light'];
+  } = properties[isDarkMode ? 'dark' : 'light'];
 
   const svgContainerProps = useSpring({
     ...svg,
@@ -64,7 +64,7 @@ function ThemeToggle() {
   });
 
   const [playClick] = useSound(
-    `/sounds/${value ? 'switch-off' : 'switch-on'}.mp3`,
+    `/sounds/${isDarkMode ? 'switch-off' : 'switch-on'}.mp3`,
     { volume: 0.3 },
   );
 
@@ -107,7 +107,7 @@ function ThemeToggle() {
       <animated.circle
         cx="12"
         cy="12"
-        fill={value ? 'white' : 'black'}
+        fill={isDarkMode ? 'white' : 'black'}
         style={centerCircleProps}
         mask="url(#myMask2)"
       />
