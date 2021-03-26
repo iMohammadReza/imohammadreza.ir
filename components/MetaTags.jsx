@@ -9,14 +9,14 @@ function MetaTags() {
       <meta name="description" content="MohammadReza Iranmanesh Personal Website | Frontend Enginner" />
       <meta name="og:title" property="og:title" content="MohammadReza Iranmanesh" />
       <meta name="og:description" property="og:title" content="MohammadReza Iranmanesh Personal Website | Frontend Enginner" />
-      <meta property="og:image" content="/favicon/android-chrome-192x192.png" />
+      <meta property="og:image" content="https://imohammadreza.ir/favicon/android-chrome-192x192.png" />
       <meta property="og:url" content="https://imohammadreza.ir" />
       <meta property="og:type" content="website" />
       <meta name="twitter:title" content="MohammadReza Iranmanesh" />
-      <meta name="twitter:site" content="@iMohammadReza_" />
+      <meta name="twitter:site:id" content="@iMohammadReza_" />
       <meta name="twitter:creator" content="@iMohammadReza_" />
       <meta name="twitter:description" content="MohammadReza Iranmanesh Personal Website | Frontend Enginner" />
-      <meta name="twitter:image" content="/favicon/android-chrome-192x192.png" />
+      <meta name="twitter:image" content="https://imohammadreza.ir/favicon/android-chrome-192x192.png" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="author" content="MohammadReza Iranmanesh" />
       <meta name="theme-color" content="#000000" />
