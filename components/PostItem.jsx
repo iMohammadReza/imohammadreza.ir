@@ -13,6 +13,10 @@ function PostItem({
     '/sounds/article-open.mp3',
     { volume: 0.5 },
   );
+  const [playHover, { stop }] = useSound(
+    '/sounds/plunger-immediate.mp3',
+    { volume: 0.1 },
+  );
 
   const handleClick = useCallback(() => {
     playOpen();
@@ -26,9 +30,12 @@ function PostItem({
     <article dir="auto" className="group mt-12 dark:text-gray-200">
       <a
         href={link}
-        onClick={handleClick}
         target="_blank"
         rel="noreferrer"
+        onClick={handleClick}
+        onFocus={playHover}
+        onMouseEnter={playHover}
+        onMouseLeave={stop}
       >
         <h1 className="text-2xl font-extrabold group-hover:text-indigo-700 dark:group-hover:text-indigo-500  transition-colors">{title}</h1>
         <div className="my-4 text-xl font-light font-sans" dangerouslySetInnerHTML={{ __html: summary }} />
