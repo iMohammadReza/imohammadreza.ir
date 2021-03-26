@@ -15,7 +15,7 @@ function PostItem({
   );
   const [playHover, { stop }] = useSound(
     '/sounds/plunger-immediate.mp3',
-    { volume: 0.1 },
+    { volume: 0.5 },
   );
 
   const handleClick = useCallback(() => {

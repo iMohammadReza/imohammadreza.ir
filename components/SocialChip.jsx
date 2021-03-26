@@ -11,7 +11,7 @@ function SocialChip({
 }) {
   const [playHover, { stop }] = useSound(
     '/sounds/plunger-immediate.mp3',
-    { volume: 0.1 },
+    { volume: 0.5 },
   );
 
   const handleClick = useCallback(() => {
@@ -23,7 +23,7 @@ function SocialChip({
 
   return (
     <a
-      className="inline-block flex-initial rounded-full bg-gray-900 dark:bg-gray-200 hover:bg-gray-700 dark:hover:bg-gray-400 text-white dark:text-gray-900 mr-4 mb-4 px-4 py-1 transition-colors transition-transform transform hover:scale-105"
+      className="inline-block flex-initial rounded-full bg-gray-900 dark:bg-gray-200 hover:bg-gray-700 dark:hover:bg-gray-400 text-sm text-white dark:text-gray-900 mr-4 mb-4 px-4 py-1 transition-colors transition-transform transform hover:scale-105"
       href={link}
       target="_blank"
       rel="noreferrer"
