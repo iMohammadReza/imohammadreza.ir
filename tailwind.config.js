@@ -21,7 +21,11 @@ module.exports = {
       50: '.5',
       105: '1.05',
     },
-    extend: {},
+    screens: {
+      sm: '690px',
+      md: '768px',
+      lg: '1024px',
+    },
   },
   variants: {
     extend: {
@@ -31,5 +35,4 @@ module.exports = {
       display: ['group-hover'],
     },
   },
-  plugins: [],
 };

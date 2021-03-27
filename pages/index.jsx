@@ -5,6 +5,7 @@ import absoluteUrl from 'next-absolute-url';
 import MetaTags from '../components/MetaTags';
 import WaveDivider from '../components/WaveDivider';
 import Posts from '../components/Posts';
+import Playlists from '../components/Playlists';
 import Contact from '../components/Contact';
 import ThemeToggle from '../components/ThemeToggle';
 import SoundToggle from '../components/SoundToggle';
@@ -56,18 +57,18 @@ function Home({ posts }) {
       <main className="bg-white dark:bg-black">
         <div className="lg:max-w-6xl lg:mx-auto py-16 px-8 lg:flex lg:flex-row-reverse">
           <aside className="lg:max-w-xs">
-            {/* <h3 className="section-title">Now playing</h3> */}
-            {/* <SpotifyNowPlaying/> */}
+            <h3 className="section-title">Playlists</h3>
+            <Playlists />
             <h3 className="section-title">Contact me</h3>
             <Contact />
           </aside>
           <div className="flex-1 lg:mr-24">
-            <h3 className="section-title">Recently published</h3>
+            <h3 className="section-title">Recently Published</h3>
             <Posts posts={posts} />
           </div>
         </div>
       </main>
-      <footer className="bg-white dark:bg-black py-12">
+      <footer className="bg-white dark:bg-black py-12 px-8">
         <p className="font-mono text-sm font-light text-center dark:text-gray-100">
           {`© ${new Date().getFullYear()} `}
           <a className="hover:text-red-500 transition-colors" href="/">
