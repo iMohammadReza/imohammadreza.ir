@@ -10,28 +10,26 @@ const SoundSettingContext = createContext();
 const localStorageKey = 'SOUND_SETTING_IS_ON';
 
 const initialValue = booleanStorage.getItem(localStorageKey, { defaultValue: true });
-
 export const useSoundSetting = () => useContext(SoundSettingContext);
 
 export function useSound(sound, configs) {
-  const { value } = useSoundSetting();
-
+  const { isSoundActive } = useSoundSetting();
   const [playSound, options] = useSoundLib(sound, configs);
 
-  return [value || configs.forsePlay ? playSound : () => {}, options];
+  return [isSoundActive || configs.forsePlay ? playSound : () => {}, options];
 }
 
 export function SoundSettingProvider({ children }) {
-  const [value, setSeound] = useState(initialValue);
+  const [isSoundActive, setSeound] = useState(initialValue);
 
   const toggleSound = useCallback(() => {
-    const newValue = !value;
+    const newValue = !isSoundActive;
     setSeound(newValue);
     booleanStorage.setItem(localStorageKey, newValue);
-  }, [value]);
+  }, [isSoundActive]);
 
   const contextValue = {
-    value,
+    isSoundActive,
     toggleSound,
   };
 

@@ -26,9 +26,9 @@ export const properties = {
 };
 
 function SoundToggle() {
-  const { value, toggleSound } = useSoundSetting();
+  const { isSoundActive, toggleSound } = useSoundSetting();
 
-  const { wave, biggerWave } = properties[value ? 'on' : 'off'];
+  const { wave, biggerWave } = properties[isSoundActive ? 'on' : 'off'];
 
   const waveRef = useRef();
   const waveProps = useSpring({
@@ -42,11 +42,11 @@ function SoundToggle() {
     config: properties.springConfig,
     ref: biggerWaveRef,
   });
-  const chainOrder = value ? [waveRef, biggerWaveRef] : [biggerWaveRef, waveRef];
+  const chainOrder = isSoundActive ? [waveRef, biggerWaveRef] : [biggerWaveRef, waveRef];
   useChain(chainOrder, [0, 0.15]);
 
   const [playClick] = useSound(
-    `/sounds/${value ? 'disable-sound' : 'enable-sound'}.mp3`,
+    `/sounds/${isSoundActive ? 'disable-sound' : 'enable-sound'}.mp3`,
     {
       volume: 0.3,
       forsePlay: true,
