@@ -29,7 +29,7 @@ function MetaTags() {
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
       <link rel="manifest" href="/manifest.json" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link rel="preload" as="style" href="$CSS&display=swap" />
       <link rel="stylesheet" href="$CSS&display=swap" media="print" onLoad="this.media='all'" />
     </Head>
