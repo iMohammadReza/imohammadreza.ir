@@ -26,6 +26,11 @@ module.exports = {
       md: '768px',
       lg: '1024px',
     },
+    extend: {
+      transitionProperty: {
+        color: 'background-color',
+      },
+    },
   },
   variants: {
     extend: {

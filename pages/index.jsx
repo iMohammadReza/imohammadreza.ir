@@ -51,7 +51,7 @@ function Home({ posts }) {
           {header.lastName}
           <p className="absolute inset-x-0 top-4 hidden group-hover:block font-mono font-bold text-lg text-red-500">{header.easterText}</p>
         </h1>
-        <h2 className="font-mono font-light text-lg sm:text-xl md:text-2xl  text-gray-700 dark:text-gray-300 mt-8">{header.jobtitle}</h2>
+        <h2 className="font-mono font-light text-lg sm:text-xl md:text-2xl  text-gray-800 dark:text-gray-200 mt-8">{header.jobtitle}</h2>
       </header>
       <WaveDivider />
       <main className="bg-white dark:bg-black">
@@ -71,7 +71,7 @@ function Home({ posts }) {
       <footer className="bg-white dark:bg-black py-12 px-8">
         <p className="font-mono text-sm font-light text-center dark:text-gray-100">
           {`© ${new Date().getFullYear()} `}
-          <a className="hover:text-red-500 transition-colors" href="/">
+          <a className="hover:text-red-500 transition-color" href="/">
             {`${header.firstName} ${header.lastName}. `}
           </a>
           All Rights Reserved.
