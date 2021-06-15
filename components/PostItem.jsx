@@ -38,6 +38,7 @@ function PostItem({
         onMouseLeave={stop}
       >
         <h1 className="text-2xl font-extrabold group-hover:text-indigo-700 dark:group-hover:text-indigo-500  transition-color">{title}</h1>
+        {/* eslint-disable-next-line react/no-danger */}
         <div className="my-4 text-xl font-light font-sans" dangerouslySetInnerHTML={{ __html: summary }} />
         <p dir="ltr" className="font-mono font-bold group-hover:text-indigo-700 dark:group-hover:text-indigo-500 transition-color">
           Read more
